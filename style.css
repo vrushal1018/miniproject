@@ -1,0 +1,242 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #600c6f, #b44ed0);
+  margin: 0;
+  padding: 0;
+  color: #222;
+}
+.container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 20px;
+}
+.card {
+  background: #ffffffd9;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  text-align: center;
+  animation: fadeIn 0.5s ease;
+}
+.hidden { display: none; }
+
+button {
+  margin: 10px;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  background: linear-gradient(45deg, #000000, #001011);
+  color: #fff;
+  font-weight: bold;
+  transition: transform 0.2s;
+}
+button:hover { transform: scale(1.05); }
+input {
+  padding: 12px;
+  width: 70%;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+/* Quiz UI */
+.quiz-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.progress {
+  width: 100%;
+  height: 10px;
+  background: #eee;
+  border-radius: 5px;
+  margin: 10px 0;
+  overflow: hidden;
+}
+#progressBar {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(45deg, #43e97b, #38f9d7);
+  transition: width 0.3s;
+}
+#options {
+  display: grid;
+  gap: 10px;
+  margin: 20px 0;
+}
+.option-btn {
+  background: #6a05c2;
+  border: 2px solid #fdfdfd;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.2s;
+}
+.option-btn.correct { background: #b0f4a8; border-color: #58d68d; }
+.option-btn.wrong { background: #f4a6a6; border-color: #e74c3c; }
+.option-btn.disabled { opacity: 0.6; cursor: not-allowed; }
+
+#scoreboardTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+#scoreboardTable th, #scoreboardTable td {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+#scoreboardTable th {
+  background: #000910;
+  color: #ffffff;
+}
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+/* Registration specific */
+.register-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.register-header .logo {
+  width: 80px;
+  height: 80px;
+  animation: bounce 1s infinite alternate;
+}
+.welcome-msg {
+  font-size: 16px;
+  color: #555;
+  margin-top: 5px;
+  text-align: center;
+}
+
+/* Avatar selection */
+.avatar-selection p {
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+.avatars {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+.avatar {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+.avatar.selectable:hover {
+  transform: scale(1.2);
+  border-color: #4facfe;
+}
+.avatar.selected {
+  border-color: #ffdd57;
+  box-shadow: 0 0 10px #ffdd57;
+}
+
+/* Input animation */
+input {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 2px solid #ccc;
+  width: 80%;
+  margin-bottom: 20px;
+  transition: border-color 0.3s;
+}
+input:focus {
+  border-color: #4facfe;
+  outline: none;
+}
+
+/* Button animation */
+button {
+  background: linear-gradient(45deg, #4facfe, #00f2fe);
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 12px 25px;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Bounce animation for logo */
+@keyframes bounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(-15px); }
+}
+/* Stage-specific backgrounds */
+body.easy-stage {
+  background: url('https://images.unsplash.com/photo-1596495577886-5f7b6a0b9f1c?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+}
+body.medium-stage {
+  background: url('https://images.unsplash.com/photo-1555066931-4365-d4bdbf1e7f23?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+}
+body.hard-stage {
+  background: url('https://images.unsplash.com/photo-1612832021513-6898f09b8e3d?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+}
+
+/* Floating decorative icons */
+.floating-icon {
+  position: absolute;
+  width: 50px;
+  animation: floatAnim 6s ease-in-out infinite;
+  opacity: 0.8;
+}
+
+@keyframes floatAnim {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(15deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* Smooth card animations */
+.card {
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+.card.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+.card.hide {
+  transform: translateY(30px);
+  opacity: 0;
+}
+
+/* Button hover animation */
+button:hover {
+  transform: scale(1.08) rotate(-1deg);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+/* Progress bar animation */
+#progressBar {
+  transition: width 0.5s ease-in-out, background 0.3s ease;
+}
+
+#questionText {
+  animation: fadeSlide 0.6s ease;
+}
+
+@keyframes fadeSlide {
+  0% {opacity: 0; transform: translateY(20px);}
+  100% {opacity:1; transform: translateY(0);}
+}
+
