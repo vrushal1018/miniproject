@@ -3,50 +3,69 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="UTF-8">
-  <title>BrainBolt Quiz Game</title>
+  <title>💡 BrainBolt Web Dev Challenge</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
 
     <!-- Registration -->
-<div id="registerCard" class="card">
-  <div class="register-header">
-    <img src="https://img.icons8.com/emoji/96/000000/light-bulb-emoji.png" alt="Quiz Logo" class="logo">
-    <h1>💡 BrainBolt Quiz</h1>
-    <p class="welcome-msg">Enter your details and start your web adventure!</p>
-  </div>
+    <div id="registerCard" class="card">
+      <div class="register-header">
+        <img src="https://img.icons8.com/emoji/96/000000/light-bulb-emoji.png" alt="Quiz Logo" class="logo">
+        <h1>💡 BrainBolt Web Dev Challenge</h1>
+        <p class="welcome-msg">Enter your details and start your web adventure!</p>
+      </div>
 
-  <div class="avatar-selection">
-    <p>Choose your avatar:</p>
-    <div class="avatars">
-      <img src="https://img.icons8.com/emoji/48/000000/alien-emoji.png" class="avatar selectable" data-avatar="alien">
-      <img src="https://img.icons8.com/emoji/48/000000/robot-emoji.png" class="avatar selectable" data-avatar="robot">
-      <img src="https://img.icons8.com/emoji/48/000000/ninja-emoji.png" class="avatar selectable" data-avatar="ninja">
-      <img src="https://img.icons8.com/emoji/48/000000/unicorn-emoji.png" class="avatar selectable" data-avatar="unicorn">
+      <div class="avatar-selection">
+        <p>Choose your avatar:</p>
+        <div class="avatars">
+          <img src="https://img.icons8.com/emoji/48/000000/alien-emoji.png" class="avatar selectable" data-avatar="alien">
+          <img src="https://img.icons8.com/emoji/48/000000/robot-emoji.png" class="avatar selectable" data-avatar="robot">
+          <img src="https://img.icons8.com/emoji/48/000000/ninja-emoji.png" class="avatar selectable" data-avatar="ninja">
+          <img src="https://img.icons8.com/emoji/48/000000/unicorn-emoji.png" class="avatar selectable" data-avatar="unicorn">
+        </div>
+      </div>
+
+      <input type="text" id="playerNameInput" placeholder="Enter your name">
+      <button id="registerBtn">Register & Continue</button>
     </div>
-  </div>
 
-  <input type="text" id="playerNameInput" placeholder="Enter your name">
-  <button id="registerBtn">Register & Continue</button>
-</div>
-
+    <!-- Framework Selection -->
+    <div id="frameworkSelect" class="card hidden">
+      <h2>Choose a Framework / Tech</h2>
+      <div class="frameworks">
+        <button class="framework-btn" data-framework="htmlcssjs">🌐 HTML / CSS / JS</button>
+        <button class="framework-btn" data-framework="react">⚛️ React</button>
+        <button class="framework-btn" data-framework="next">🚀 Next.js</button>
+        <button class="framework-btn" data-framework="angular">🅰️ Angular</button>
+      </div>
+      <div style="margin-top:12px">
+        <button id="viewDashboardBtn">📊 View Dashboard</button>
+        <button id="logoutBtn">🔄 Logout</button>
+      </div>
+    </div>
 
     <!-- Stage Selection -->
     <div id="stageSelect" class="card hidden">
       <h2>Welcome, <span id="playerNameLabel"></span> 👋</h2>
+      <h3>Selected: <span id="frameworkLabel"></span></h3>
       <h3>Select Your Level</h3>
       <button class="stage-btn" data-stage="easy">🌱 Easy</button>
       <button class="stage-btn" data-stage="medium">🔥 Medium</button>
       <button class="stage-btn" data-stage="hard">💀 Hard</button>
 
-      <h3>🏆 Scoreboard</h3>
+      <h3>🏆 Scoreboard (all players)</h3>
       <table id="scoreboardTable">
         <thead>
-          <tr><th>Player</th><th>Stage</th><th>Best Score</th></tr>
+          <tr><th>Player</th><th>Framework</th><th>Stage</th><th>Best Score</th></tr>
         </thead>
         <tbody></tbody>
       </table>
+      <div style="margin-top:12px">
+        <button id="backToFrameworkBtn">⬅️ Back</button>
+        <button id="viewDashboardBtn2">📊 Dashboard</button>
+      </div>
     </div>
 
     <!-- Quiz Section -->
@@ -80,12 +99,30 @@
     <!-- Results -->
     <div id="resultCard" class="card hidden">
       <h2>🎉 Stage Completed!</h2>
+      <p>Framework: <span id="resFramework"></span></p>
       <p>Stage: <span id="resStage"></span></p>
       <p>Score: <span id="resScore"></span></p>
       <p>Correct Answers: <span id="resCorrect"></span></p>
       <p>Total Coins: <span id="resCoins"></span></p>
-      <button id="retryBtn">🔄 Retry Stage</button>
-      <button id="homeBtn">🏠 Home</button>
+      <div style="margin-top:12px">
+        <button id="retryBtn">🔄 Retry Stage</button>
+        <button id="homeBtn">🏠 Home</button>
+        <button id="openDashboardFromResult">📊 View Dashboard</button>
+      </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="dashboardCard" class="card hidden">
+      <h2>📊 Your Proficiency Dashboard</h2>
+      <table id="dashboardTable">
+        <thead>
+          <tr><th>Framework</th><th>Easy</th><th>Medium</th><th>Hard</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <div style="margin-top:12px">
+        <button id="backToHomeBtn">🏠 Back to Home</button>
+      </div>
     </div>
 
   </div>

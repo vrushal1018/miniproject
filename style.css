@@ -6,7 +6,7 @@ body {
   color: #222;
 }
 .container {
-  max-width: 700px;
+  max-width: 900px;
   margin: 40px auto;
   padding: 20px;
 }
@@ -47,6 +47,8 @@ input {
   justify-content: space-between;
   margin-bottom: 10px;
   font-weight: bold;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 .progress {
   width: 100%;
@@ -93,9 +95,35 @@ input {
   background: #000910;
   color: #ffffff;
 }
-@keyframes fadeIn {
-  from {opacity: 0; transform: translateY(10px);}
-  to {opacity: 1; transform: translateY(0);}
+
+/* Framework buttons */
+.frameworks { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+.framework-btn {
+  background: linear-gradient(45deg, #ff8a00, #da1b60);
+  color: #fff;
+  margin: 10px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  font-size:16px;
+}
+.framework-btn:hover { transform: scale(1.05); }
+
+/* Dashboard table */
+#dashboardTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+#dashboardTable th, #dashboardTable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+#dashboardTable th {
+  background: #001011;
+  color: #fff;
 }
 
 /* Registration specific */
@@ -182,30 +210,6 @@ button:hover {
   from { transform: translateY(0); }
   to { transform: translateY(-15px); }
 }
-/* Stage-specific backgrounds */
-body.easy-stage {
-  background: url('https://images.unsplash.com/photo-1596495577886-5f7b6a0b9f1c?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
-}
-body.medium-stage {
-  background: url('https://images.unsplash.com/photo-1555066931-4365-d4bdbf1e7f23?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
-}
-body.hard-stage {
-  background: url('https://images.unsplash.com/photo-1612832021513-6898f09b8e3d?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
-}
-
-/* Floating decorative icons */
-.floating-icon {
-  position: absolute;
-  width: 50px;
-  animation: floatAnim 6s ease-in-out infinite;
-  opacity: 0.8;
-}
-
-@keyframes floatAnim {
-  0% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(15deg); }
-  100% { transform: translateY(0) rotate(0deg); }
-}
 
 /* Smooth card animations */
 .card {
@@ -218,12 +222,6 @@ body.hard-stage {
 .card.hide {
   transform: translateY(30px);
   opacity: 0;
-}
-
-/* Button hover animation */
-button:hover {
-  transform: scale(1.08) rotate(-1deg);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
 }
 
 /* Progress bar animation */
@@ -239,4 +237,3 @@ button:hover {
   0% {opacity: 0; transform: translateY(20px);}
   100% {opacity:1; transform: translateY(0);}
 }
-
